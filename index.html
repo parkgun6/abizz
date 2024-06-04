@@ -33,11 +33,14 @@
     <!-- swiper -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 
 <body>
     <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-grow text-primary" role="status"></div>
     </div>
     <!-- Spinner End -->
@@ -92,14 +95,15 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="row h-100" style="justify-content: center;">
-                        <img class="rounded" style="width:400px;"src="./img/sideimg.png" alt="">
+                        <img class="rounded" style="width:400px;" src="./img/sideimg.png" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="h-100">
                         <p class="text-secondary text-uppercase mb-2">// About Us</p>
                         <h1 class="display-15 mb-4">감정과 스토리를 담아<br>소비자에게 다가가는 어비즈</h1>
-                        <p>우리는 트렌디한 인플루언서만의 감성으로<br>제품의 가치를 재탄생 시키며<br>많은 브랜드사와의 협업 경험을 바탕으로<br>확실하고 효과적인 마케팅 전략을 제시합니다.</p>
+                        <p>우리는 트렌디한 인플루언서만의 감성으로<br>제품의 가치를 재탄생 시키며<br>많은 브랜드사와의 협업 경험을 바탕으로<br>확실하고 효과적인 마케팅 전략을 제시합니다.
+                        </p>
                         <div class="row g-2 mb-4">
                             <div class="col-sm-6">
                                 <i class="fa fa-check text-primary me-2"></i>Quality Products
@@ -207,7 +211,7 @@
                         </div>
                         <div class="swiper-container section3_swiper3">
                             <div class="swiper-wrapper">
-                                
+
                             </div>
                         </div>
                     </div>
@@ -222,11 +226,10 @@
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
                 <p class="text-secondary text-uppercase mb-2">// Contact Us</p>
-                <h1 class="display-8 mb-4" style="font-size:2rem;">상품 문의</h1>
+                <h1 class="display-8 mb-4" style="font-size:2rem;">협업 문의</h1>
             </div>
             <div class="row g-0 justify-content-center">
                 <div class="col-lg-8 wow fadeInUp" data-wow-delay="0.5s">
-                    <p class="text-center mb-4">문의 내용은 확인 즉시 답변 보내드립니다.<br>사정 상 답변이 늦을 수 있는 점 양해 부탁드립니다. 
                     </p>
                     <form>
                         <div class="row g-3">
@@ -238,30 +241,44 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                    <label for="subject">제목 (업체명과 함께 적어주세요.)</label>
+                                    <input type="text" class="form-control" id="title" placeholder="title">
+                                    <label for="title">제목 (업체명과 함께 적어주세요.)</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 200px"></textarea>
+                                    <textarea class="form-control" placeholder="Leave a message here" id="message"
+                                        style="height: 200px"></textarea>
                                     <label for="message">내용 (담당자명도 함께 적어주세요.)</label>
                                 </div>
                             </div>
-                            <tr class="text-box pc">
+                            <tr class="checkbox">
                                 <td colspan="4">
-                                    <label class="txt1">개인정보의 수집 및 이용목적에 동의합니다.</label>
-                                    <p class="txt2">
-                                        어비즈는 귀하가 제공하는 개인정보가 「개인정보 보호법」 등 관련 법령에 따라
-                                        개인정보보호 규정을 준수하여 수집·보유·처리되고 있습니다.<br />
-                                        귀하의 개인정보 수집·이용 및 제3자 제공과 관련하여 
-                                        아래의 내용을 정확히 숙지하시고 동의여부를 결정하여 주시기 바랍니다.
-                                    </p>
+                                    <div style='display:flex'>
+                                        <input id="agreement" name="agreement" type="checkbox" value="true"
+                                            class="check" />
+                                        <label for="agreement">개인정보의 수집 및 이용목적에 동의합니다.</label>
+                                        <button class="btn btn-secondary rounded-pill personal-info-btn" style='width: 60px;
+                                        height: 25px;
+                                        font-size: 8px;' type='button'>펼쳐보기</button>
+                                    </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td colspan="4">
-                                    <textarea cols="60" name="info" rows="10" class="txt3" readonly>
+                            <div class='personal-info' style='display:none'>
+                                <tr class="text-box pc">
+                                    <td colspan="4">
+                                        <label class="txt1">개인정보의 수집 및 이용목적에 동의합니다.</label>
+                                        <p class="txt2">
+                                            어비즈는 귀하가 제공하는 개인정보가 「개인정보 보호법」 등 관련 법령에 따라
+                                            개인정보보호 규정을 준수하여 수집·보유·처리되고 있습니다.<br />
+                                            귀하의 개인정보 수집·이용 및 제3자 제공과 관련하여
+                                            아래의 내용을 정확히 숙지하시고 동의여부를 결정하여 주시기 바랍니다.
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">
+                                        <textarea cols="60" name="info" rows="10" class="txt3" readonly>
     ▶ 개인정보의 수집 및 이용목적 
         - 서비스 이용에 따른 본인식별, 실명확인, 가입의사 확인, 연령제한 서비스 이용 
         - 고지사항 전달, 불만처리 의사소통 경로 확보, 물품배송 시 정확한 배송지 정보 확보 
@@ -274,18 +291,12 @@
         - 다만, 원활한 서비스의 상담을 위해 상담완료 후 내용을 3개월간 보유할 수 있으며, 
           전자상거래에서의 소비자보호에 관한 법률 등 타법률에 의해 보존할 필요가 있는 경우에는 일정기간 보존합니다.
                                     </textarea>
-                                </td>
-                            </tr>
-                            <tr class="checkbox">
-                                <td colspan="4">
-                                    <div>
-                                        <input id="agreement" name="agreement" type="checkbox" value="true" class="check" />
-                                        <label for="agreement">개인정보의 수집 및 이용목적에 동의합니다.</label>
-                                    </div>
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
+                            </div>
                             <div class="col-12 text-center">
-                                <button class="btn btn-secondary rounded-pill py-3 px-5" type="submit">Send Message</button>
+                                <button class="btn btn-secondary rounded-pill py-3 px-5 send-email" type="button">Send
+                                    Email</button>
                             </div>
                         </div>
                     </form>
@@ -313,7 +324,8 @@
 
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-secondary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <a href="#" class="btn btn-lg btn-secondary btn-lg-square rounded-circle back-to-top"><i
+            class="bi bi-arrow-up"></i></a>
 
 
     <!-- JavaScript Libraries -->
