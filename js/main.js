@@ -164,19 +164,21 @@
     false
   );
   emailjs.init({
-    publicKey: 'oi6_AQO-qy-eeGrHg',
+    publicKey: 'KgAi9gOwXYccgDQHc',
   });
   document.querySelector('.send-email').addEventListener(
     'click',
     () => {
       if (document.querySelector('#agreement').checked === true) {
         const templateParams = {
-          from_email: document.querySelector('#email').value,
-          title: document.querySelector('#title').value,
+          comp: document.querySelector('#comp').value,
+          charger: document.querySelector('#charger').value,
+          phone: document.querySelector('#phone').value,
+          email: document.querySelector('#email').value,
           content: document.querySelector('#message').value,
         };
         emailjs
-          .send('service_ow36sc7', 'template_myv037g', templateParams)
+          .send('service_jr6zcv4', 'template_l5zfbnc', templateParams)
           .then((res) => {
             alert('성공적으로 메일을 보냈습니다!');
             window.location.reload();
